@@ -119,6 +119,9 @@ EOF
       subconfig.vm.provision "shell", inline: <<-SHELL
         export DEBIAN_FRONTEND=noninteractive 
 
+        # Install MPI environment
+        apt install openmpi-bin openmpi-common libopenmpi3 libopenmpi-dev -y --no-install-recommends
+
         # Setup NFS
         apt install nfs-common -y --no-install-recommends
         mkdir /mnt/share_dir
